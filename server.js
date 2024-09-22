@@ -7,7 +7,7 @@ app.use(bodyParser.json({ limit: '10mb' }));
 
 // CORS configuration
 const corsOptions = {
-  origin: 'https://bhflbackend-production.up.railway.app',
+  origin: ['https://bhfl-git-main-tejapottetis-projects.vercel.app', 'http://localhost:3000'],
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
@@ -32,8 +32,6 @@ app.post('/bfhl', (req, res) => {
 
     if (file_b64) {
       fileValid = true;
-      // For simplicity, we're using a placeholder MIME type and file size
-      // In a real scenario, you'd determine these from the actual file
       fileMimeType = file_b64.startsWith('/9j/') ? "image/jpeg" : "application/pdf";
       fileSizeKb = Math.floor(Math.random() * 2000) + 1; // Random size between 1 and 2000 KB
     }
